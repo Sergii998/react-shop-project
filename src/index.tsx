@@ -1,14 +1,23 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-// підхід JSX - це сучасніший метод_____________________
-// const h1 = <h1 id="title" className="test">Hello world</h1>
 
-// without jsx, консервативний підхід по якому все працює___
-const h1 = React.createElement(
-    'h1',
-    { id: 'title', className: 'test' },
-    'Hello React'
-)
+function App() {
+    return (
+        <div>
+            <h1>Hello React.js</h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, ab
+                aut soluta officia minus in. Minima totam asperiores, at, id
+                voluptas odio quam autem a reprehenderit dicta hic culpa
+                tenetur.
+            </p>
+        </div>
+    )
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
-root.render(<React.StrictMode>{h1}</React.StrictMode>)
+root.render(
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>
+)
