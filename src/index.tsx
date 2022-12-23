@@ -7,7 +7,7 @@ const Title = () => {
 
 const Content = () => {
     return (
-        <div>
+        <React.Fragment>
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, ab
                 aut soluta officia minus in. Minima totam asperiores, at, id
@@ -20,16 +20,16 @@ const Content = () => {
                 voluptas odio quam autem a reprehenderit dicta hic culpa
                 tenetur.
             </p>
-        </div>
+        </React.Fragment>
     )
 }
 // стрілкова функція частіше застосовується, записуємо по шаблону, див нижче___
 const App = () => {
     return (
-        <div>
+        <React.Fragment>
             <Title />
             <Content />
-        </div>
+        </React.Fragment>
     )
 }
 
