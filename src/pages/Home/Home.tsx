@@ -5,8 +5,7 @@ const Home = (props: Props) => {
     return (
         <>
             <Typography variant="h4" align="center">
-                {' '}
-                List of products{' '}
+                List of products
             </Typography>
         </>
     )
