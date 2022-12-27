@@ -1,26 +1,34 @@
 import { Grid } from '@mui/material'
 import ProductsListItem from './ProductsListItem'
+import productsArray from './productsArray'
+
+type ProductsProps = {
+    title: string
+    desc: string
+    type: string
+    capacity: string
+    price: number
+}
 
 type Props = {}
 const ProductsList = (props: Props) => {
     return (
         <>
+            {console.log('test')}
             <Grid container direction="row" alignItems="center" spacing={4}>
-                <Grid item xs={12} sm={6} md={4}>
-                    <ProductsListItem />
-                </Grid>
-
-                <Grid item xs={12} sm={6} md={4}>
-                    <ProductsListItem />
-                </Grid>
-
-                <Grid item xs={12} sm={6} md={4}>
-                    <ProductsListItem />
-                </Grid>
-
-                <Grid item xs={12} sm={6} md={4}>
-                    <ProductsListItem />
-                </Grid>
+                {productsArray.map(
+                    ({ title, desc, type, capacity, price }: ProductsProps) => (
+                        <Grid item xs={12} sm={6} md={4}>
+                            <ProductsListItem
+                                title={title}
+                                desc={desc}
+                                type={type}
+                                capacity={capacity}
+                                price={price}
+                            />
+                        </Grid>
+                    )
+                )}
             </Grid>
         </>
     )
