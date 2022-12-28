@@ -16,31 +16,31 @@ type Props = {
 
 type State = {
     count: number
+    color: string
 }
 
 class ProductsListItem extends Component<Props, State> {
-    constructor(props: Props) {
-        super(props)
-        this.state = {
-            count: 1,
-        }
-
-        this.onIncrementClick = this.onIncrementClick.bind(this)
-        this.onDecrementClick = this.onDecrementClick.bind(this)
+    state = {
+        count: 1,
+        color: 'green',
     }
 
-    onIncrementClick() {
-        console.log(this)
+    onIncrementClick = () => {
         this.setState((prevState: State) => ({
             count: prevState.count + 1,
         }))
     }
 
-    onDecrementClick() {
-        console.log(this)
+    onDecrementClick = () => {
         this.setState((prevState: State) => ({
             count: prevState.count - 1,
         }))
+    }
+
+    changeColor() {
+        this.setState({
+            color: 'red',
+        })
     }
 
     render() {
@@ -60,18 +60,22 @@ class ProductsListItem extends Component<Props, State> {
                     <div className="product-features">
                         <span>Capacity:</span> {capacity} gb
                     </div>
+                    <p>Color:{this.state.color}</p>
+                    <button onClick={() => this.changeColor()}>
+                        Change color
+                    </button>
                     <div className="product-price"> {price} $</div>
                     <div className="product-quantity">
                         <Button
                             variant="outlined"
-                            onClick={this.onDecrementClick}
+                            onClick={() => this.onDecrementClick()}
                         >
                             -
                         </Button>
                         <TextField size="small" value={this.state.count} />
                         <Button
                             variant="outlined"
-                            onClick={this.onIncrementClick}
+                            onClick={() => this.onIncrementClick()}
                         >
                             +
                         </Button>
