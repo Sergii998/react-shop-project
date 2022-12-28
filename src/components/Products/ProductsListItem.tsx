@@ -1,5 +1,6 @@
 import { Card, CardActions, CardContent, Button } from '@mui/material'
 import './ProductsListItem.scss'
+import TextField from '@mui/material/TextField'
 
 type Props = {
     title: string
@@ -33,6 +34,11 @@ const ProductsListItem = ({
                     <span>Capacity:</span> {capacity} gb
                 </div>
                 <div className="product-price"> {price} $</div>
+                <div className="product-quantity">
+                    <Button variant="outlined">-</Button>
+                    <TextField size="small" value="1" />
+                    <Button variant="outlined">+</Button>
+                </div>
             </CardContent>
             <CardActions className="btns-wrap">
                 <Button variant="outlined">Add to cart</Button>
