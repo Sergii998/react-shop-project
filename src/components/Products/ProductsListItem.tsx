@@ -21,6 +21,7 @@ const ProductsListItem = ({
     image,
 }: Props) => {
     const [count, setCount] = useState<number>(1)
+    const [color, setColor] = useState<string>('green')
 
     const onIncrement = () => {
         setCount((prevState: number) => prevState + 1)
@@ -29,6 +30,22 @@ const ProductsListItem = ({
     const onDecrement = () => {
         setCount((prevState: number) => prevState - 1)
     }
+
+    const changeColor = () => {
+        setColor((prevState: string) =>
+            prevState === 'green' ? 'red' : 'green'
+        )
+    }
+    // різниця реалізаціі тернарної форми запису функціі і через if
+    // const changeColor = () => {
+    //     setColor((prevState: string) => {
+    //         if (prevState === 'green') {
+    //             return 'red'
+    //         } else {
+    //             return 'green'
+    //         }
+    //     })
+    // }
 
     return (
         <Card className="product-list-item">
@@ -45,6 +62,8 @@ const ProductsListItem = ({
                     <span>Capacity:</span> {capacity} gb
                 </div>
                 <div className="product-price"> {price} $</div>
+                <p>Color: {color}</p>
+                <button onClick={changeColor}>Change color</button>
                 <div className="product-quantity">
                     <Button variant="outlined" onClick={() => onDecrement()}>
                         -
